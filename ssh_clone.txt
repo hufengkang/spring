@@ -1,2 +1,1 @@
-http_clone modify
-ssh_clone modify
+http_clone modify second

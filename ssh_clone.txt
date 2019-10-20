@@ -1,3 +1,8 @@
+
+ssh_clone modify
+
+ssh_clone modify second
+
 http_clone modify second
 
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zero.dao.UserDao">
+
+	<resultMap type="cn.zero.domain.User" id="BaseResultMap">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="cust_no" property="custNo" jdbcType="VARCHAR" />
+		<result column="cert_type" property="certTpye" jdbcType="VARCHAR" />
+		<result column="cert_no" property="certNo" jdbcType="VARCHAR" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<insert id="addUser" parameterType="cn.zero.domain.User">
+		insert into user_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="custNo != null and custNo != '' ">
+				cust_no,
+			</if>
+			<if test="certTpye != null and certTpye != '' ">
+				cert_type,
+			</if>
+			<if test="certNo != null and certNo != '' ">
+				cert_no,
+			</if>
+			<if test="userName != null and userName != '' ">
+				user_name,
+			</if>
+		</trim>		
+		<trim prefix="values(" suffix=")" suffixOverrides=",">
+			<if test="custNo != null and custNo != '' ">
+				#{custNo,jdbcType=VARCHAR},
+			</if>
+			<if test="certTpye != null and certTpye != '' ">
+				#{certTpye,jdbcType=VARCHAR},
+			</if>
+			<if test="certNo != null and certNo != '' ">
+				#{certNo,jdbcType=VARCHAR},
+			</if>
+			<if test="userName != null and userName != '' ">
+				#{userName,jdbcType=VARCHAR},
+			</if>
+		</trim>
+		
+		
+
+
+	</insert>
+
+
+
+</mapper>

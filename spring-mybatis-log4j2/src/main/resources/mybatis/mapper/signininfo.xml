@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zero.dao.SignInInfoDao">
+
+	<resultMap type="cn.zero.domain.SignInInfo" id="BaseResultMap">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="cust_no" property="custNo" jdbcType="VARCHAR" />
+		<result column="day1" property="day1" jdbcType="VARCHAR" />
+		<result column="day2" property="day2" jdbcType="VARCHAR" />
+		<result column="day3" property="day3" jdbcType="VARCHAR" />
+		<result column="day4" property="day4" jdbcType="VARCHAR" />
+		<result column="day5" property="day5" jdbcType="VARCHAR" />
+		<result column="day6" property="day6" jdbcType="VARCHAR" />
+		<result column="day7" property="day7" jdbcType="VARCHAR" />
+		<result column="latest" property="latest" jdbcType="VARCHAR" />
+		<result column="count" property="count" jdbcType="INTEGER" />
+	</resultMap>
+
+	<insert id="addSignInInfo" parameterType="cn.zero.domain.SignInInfo">
+		insert into user_signin_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="custNo != null and custNo != '' ">
+				cust_no,
+			</if>
+			<if test="latest != null and latest != '' ">
+				latest,
+			</if>
+		</trim>		
+		<trim prefix="values(" suffix=")" suffixOverrides=",">
+			<if test="custNo != null and custNo != '' ">
+				#{custNo,jdbcType=VARCHAR},
+			</if>
+			<if test="latest != null and latest != '' ">
+				#{latest,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+</mapper>

@@ -1,0 +1,15 @@
+*.class
+
+.settings/
+
+target/
+
+test/
+
+log/
+
+doc/
+
+.classpath
+
+.project

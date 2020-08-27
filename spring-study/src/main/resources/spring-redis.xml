@@ -44,6 +44,9 @@
 	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
       <property name="connectionFactory" ref="connectionFactory" />
       <property name="keySerializer" ref="stringRedisSerializer" />
+      <property name="hashKeySerializer" ref="stringRedisSerializer" />
+      <property name="hashValueSerializer" ref="stringRedisSerializer" />
+      
     </bean>
       
     <!-- 所有键与值都是 String 类型的 RedisTemplate -->

@@ -1,6 +1,10 @@
 package cn.zero.domain;
 
-public class UserInfo {
+import java.io.Serializable;
+
+public class UserInfo implements Serializable{
+
+	private static final long serialVersionUID = -9114962517975842724L;
 
 	private String name;
 
